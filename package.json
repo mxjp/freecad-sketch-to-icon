@@ -1,0 +1,12 @@
+{
+	"name": "@mpt/freecad-sketch-to-icon",
+	"type": "module",
+	"main": "./src/index.js",
+	"bin": {
+		"freecad-sketch-to-icon": "./src/cli.js"
+	},
+	"dependencies": {
+		"parse5": "^7.1.2",
+		"yargs-parser": "^21.1.1"
+	}
+}
