@@ -1,5 +1,8 @@
 {
 	"name": "@mpt/freecad-sketch-to-icon",
+	"repository": "https://github.com/mxjp/freecad-sketch-to-icon.git",
+	"author": "Max J. Polster",
+	"license": "MIT",
 	"type": "module",
 	"main": "./src/index.js",
 	"bin": {
