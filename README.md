@@ -6,7 +6,7 @@ This package provides an API or CLI to clean up and minimize a FreeCAD sketch th
 import { sketchToIcon } from "@mpt/freecad-sketch-to-icon";
 
 const output = sketchToIcon({
-  input: await readFile("./input.svg"),
+  input: await readFile("./input.svg", "utf-8"),
 });
 ```
 
