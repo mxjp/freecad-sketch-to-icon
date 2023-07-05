@@ -108,17 +108,27 @@ export function sketchToIcon(options) {
 
 			switch (node.nodeName) {
 				case "rect":
-				case "circle":
 				case "ellipse":
 				case "line":
 				case "polyline":
 					throw new Error(`<${node.nodeName}> is currently not supported`);
 
+				case "circle": {
+					const cx = getAttrValue(node, "cx");
+					const cy = getAttrValue(node, "cy");
+					const r = getAttrValue(node, "r");
+					if (!cx || !cy || !r) {
+						throw new Error(`<circle> is missing "cx", "cy" or "r" attributes`);
+					}
+					paths.push(normalizePathData(`M ${-r} 0 A ${r} ${r} 0 0 1 ${r} 0 A ${r} ${r} 0 0 1 ${-r} 0`, context, precision));
+				} break;
+
 				case "path": {
 					const data = getAttrValue(node, "d");
-					if (data) {
-						paths.push(normalizePathData(data, context, precision));
+					if (!data) {
+						throw new Error(`<path> is missing "d" attribute`);
 					}
+					paths.push(normalizePathData(data, context, precision));
 				} break;
 			}
 
